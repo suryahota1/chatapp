@@ -1,7 +1,7 @@
 import React from "react";
 import { AddChannel } from "./../assets/AddChannel";
 
-const TeamChannelList = ({ children, error = false, loading, type }) => {
+const TeamChannelList = ({ children, error = false, loading, type, isCreating, setCreateType, setIsCreating, setIsEditing }) => {
     console.log("TeamChannelList children", children);
     console.log("TeamChannelList error", error);
     console.log("TeamChannelList loading", loading);
@@ -31,7 +31,13 @@ const TeamChannelList = ({ children, error = false, loading, type }) => {
                 <p className="team-channel-list__header__title">
                     {type === "team" ? "Channels" : "Direct Messages"}
                 </p>
-                {/* <button /> */}
+                <AddChannel 
+                    isCreating={isCreating}
+                    setCreateType={setCreateType} 
+                    setIsCreating={setIsCreating} 
+                    setIsEditing={setIsEditing}
+                    type={type === "tema" ? "team" : "messaging"}
+                />
             </div>
             {children}
         </div>
